@@ -2,26 +2,57 @@ import React from 'react'
 
 function ContractCard() {
   return (
-    <div className='py-5 px-10 bg-white flex flex-col gap-5 border-[1.5px] border-slate-100 shadow text-gray-700 rounded-md mt-5'>
-    
-      <button className='bg-blue-600 hover:bg-blue-500 cursor-pointer rounded-2xl px-10 py-2 text-white text-xl'> Contratar</button>
+    <div className='p-6 bg-white flex flex-col gap-6 border border-slate-100 shadow-sm rounded-lg'>
+      {/* Hire Button */}
+      <button className='bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-6 py-3 text-white font-medium text-lg w-full shadow-md hover:shadow-lg'>
+        Contratar
+      </button>
       
-      <div className='flex flex-col gap-2'>
-        <h2 className='font-semibold'>Actividade</h2>
-        <p className='flex gap-10'><span>Projectos Realizados</span> <span className='font-semibold'>350</span></p>
-        <p className='flex justify-between'><span>Projectos em Execucao</span> <span className='font-semibold'>6</span></p>
-        <p className='flex justify-between'><span>Horas Trabalhadas</span> <span className='font-semibold'>350</span></p>
+      {/* Activity Section */}
+      <div className='space-y-4'>
+        <h2 className='font-semibold text-lg text-gray-800 border-b pb-2'>Actividade</h2>
+        <div className='space-y-3'>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Projectos Realizados</span>
+            <span className='font-semibold text-gray-800'>350</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Projectos em Execução</span>
+            <span className='font-semibold text-gray-800'>6</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Horas Trabalhadas</span>
+            <span className='font-semibold text-gray-800'>350</span>
+          </div>
+        </div>
       </div>
 
-      <div className='flex flex-col gap-2'>
-        <h2 className='font-semibold'>Actividade</h2>
-        <p className='flex justify-between items-center'><span>Classificacoes do cliente</span> <span className='font-semibold'>350</span></p>
-        <p className='flex justify-between items-center'><span>Violacoes</span> <span className='font-semibold text-red-400'>1</span></p>
-        <p className='flex justify-between items-center'><span>Certificacoes</span> <span className='font-semibold'>0</span></p>
-        <p className='flex justify-between items-center'><span>Ultimo Login</span> <span className='font-semibold'>ha 7 horas</span></p>
-        <p className='flex justify-between items-center'><span>Ingressou</span> <span className='font-semibold'>ha 3 anos</span></p>
+      {/* Stats Section */}
+      <div className='space-y-4'>
+        <h2 className='font-semibold text-lg text-gray-800 border-b pb-2'>Estatísticas</h2>
+        <div className='space-y-3'>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Classificações do cliente</span>
+            <span className='font-semibold text-gray-800'>350</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Violações</span>
+            <span className='font-semibold text-red-500'>1</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Certificações</span>
+            <span className='font-semibold text-gray-800'>0</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Último Login</span>
+            <span className='font-semibold text-gray-800'>há 7 horas</span>
+          </div>
+          <div className='flex justify-between'>
+            <span className='text-gray-600'>Ingressou</span>
+            <span className='font-semibold text-gray-800'>há 3 anos</span>
+          </div>
+        </div>
       </div>
-
     </div>
   )
 }
