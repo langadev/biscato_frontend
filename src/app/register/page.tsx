@@ -2,62 +2,172 @@
 import { useState } from "react"
 import { GoogleLogin } from '@react-oauth/google';
 import Image from "next/image";
+import { Facebook } from 'lucide-react';
 
 export default function Register() {
-  const [login, openLogin] = useState(true);
-  const handleLogin = ()=>{
-    openLogin(!login);
-  }
+  const [login, setLogin] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log(formData);
+  };
+
   return (
-    <div className='flex justify-between items-center w-screen h-screen'>
-      <div className='w-[150%] flex flex-col gap-5 py-28 items-center h-full'>
-        <h1 className='text-2xl font-bold text-blue-600'>BISCATO</h1>
-        <h2 className='text-xl font-bold text-zinc-900'>Registrar-se</h2>
-        <div className='flex flex-col gap-y-2'>
-        <GoogleLogin
-  onSuccess={credentialResponse => {
-    console.log(credentialResponse);
-  }}
-  onError={() => {
-    console.log('Login Failed');
-  }}
-/>;
-          <div className='border-[1px] border-gray-300 w-[350px] px-3 text-center rounded-sm py-1'>
-            facebook
+    <div className='flex flex-col lg:flex-row w-full min-h-screen'>
+      {/* Left Column - Form */}
+      <div className='w-full lg:w-1/2 flex flex-col items-center justify-center p-8 bg-white'>
+        <div className='w-full max-w-md'>
+          <h1 className='text-3xl font-bold text-blue-600 text-center mb-2'>BISCATO</h1>
+          <h2 className='text-2xl font-semibold text-gray-800 text-center mb-8'>
+            {login ? 'Entrar na sua conta' : 'Criar nova conta'}
+          </h2>
+
+          {/* Social Login Buttons */}
+          <div className='flex flex-col gap-4 mb-6'>
+            <GoogleLogin
+              onSuccess={credentialResponse => {
+                console.log(credentialResponse);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+              useOneTap
+              theme="filled_blue"
+              size="large"
+              text={login ? "signin_with" : "signup_with"}
+              shape="rectangular"
+              width="350"
+            />
+            
+            <button className='flex items-center justify-center gap-2 border border-gray-300 rounded-md py-3 px-4 hover:bg-gray-50 transition-colors'>
+              <Facebook className="text-blue-600" size={20} />
+              <span>Continuar com Facebook</span>
+            </button>
+          </div>
+
+          {/* Divider */}
+          <div className='flex items-center my-6'>
+            <hr className='flex-grow border-gray-300'/>
+            <span className='px-4 text-gray-500'>ou</span>
+            <hr className='flex-grow border-gray-300'/>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className='space-y-4'>
+            {!login && (
+              <div className='grid grid-cols-2 gap-4'>
+                <div>
+                  <input 
+                    type="text" 
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder='Nome' 
+                    className='w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                    required
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="text" 
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder='Sobrenome' 
+                    className='w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
+            <div>
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder='Email' 
+                className='w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                required
+              />
+            </div>
+
+            <div>
+              <input 
+                type="password" 
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder='Senha' 
+                className='w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent'
+                required
+                minLength={6}
+              />
+            </div>
+
+            {!login && (
+              <div className='flex items-start'>
+                <input 
+                  type="checkbox" 
+                  id="terms"
+                  className='mt-1 mr-2'
+                  required
+                />
+                <label htmlFor="terms" className='text-sm text-gray-600'>
+                  Eu concordo com os <a href="#" className='text-blue-600 hover:underline'>Termos de Serviço</a> e com a <a href="#" className='text-blue-600 hover:underline'>Política de Privacidade</a> do Biscato
+                </label>
+              </div>
+            )}
+
+            <button 
+              type="submit"
+              className='w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors'
+            >
+              {login ? 'Entrar' : 'Junte-se ao Biscato'}
+            </button>
+          </form>
+
+          {/* Switch between Login/Register */}
+          <div className='mt-6 text-center text-sm text-gray-600'>
+            {login ? 'Não tem uma conta? ' : 'Já possui uma conta? '}
+            <button 
+              type="button"
+              onClick={() => setLogin(!login)}
+              className='text-blue-600 font-medium hover:underline focus:outline-none'
+            >
+              {login ? 'Registre-se' : 'Faça login'}
+            </button>
           </div>
         </div>
-        <div className='w-[1/2] flex items-center gap-2.5 px-15'>
-        <hr className='w-[170px] text-gray-300'/>
-          <span>ou</span>
-        <hr className='w-[150px] text-gray-300'/>
-        </div>
-        <form action=""  className='flex flex-col gap-5 items-center'>
-          {login &&(<div  className='flex gap-2'>
-            <input type="text" name="" id="" placeholder='nome' className=' focus:ring py-2 px-2 rounded-md w-[170px] focus:outline-blue-400 focus:outline-1 focus:rounded-md border-[1px] focus:border-0 border-gray-300 '/>
-            <input type="text" name="" id="" placeholder='sobrenome' className='focus:ring py-2 px-2 rounded-md w-[170px] focus:outline-blue-400 focus:outline-1 focus:rounded-md border-[1px] focus:border-0 border-gray-300 '/>
-          </div>)
-          }
-          <div className='flex flex-col gap-5'>
-            <input type="email" name="" id="" className='border-[1px] focus:border-0 focus:ring py-1 px-2 rounded-md w-[350px] focus:outline-blue-400 focus:outline-1 focus:rounded-md border-gray-300' placeholder='Email' />
-            <input type="password" name="" id="" className='border-[1px] focus:border-0 focus:ring py-1 px-2 rounded-md w-[350px]  focus:outline-blue-400 focus:outline-1 focus:rounded-md border-gray-300' placeholder='senha'/>
-          </div>
-          <div className='flex flex-col gap-5 w-[52%] items-center'>
-          
-          <span> <input type="checkbox" name="" id="" /> Eu concordo com os <span className='text-blue-600'>Termos de Acordo com o Usuario</span>  e com a  <span className='text-blue-600'>Politica de Privacidade do </span>Biscato</span>
-          <button className='px-24 py-2 bg-blue-600 text-xl text-white rounded-md'>Junte se a Biscato</button>
-          </div>
-          <hr className='w-1/2 text-gray-300'/>
-          <span>Ja possui uma conta ? <span className='text-blue-600' onClick={()=>{handleLogin()}}>faca login</span></span>
-        </form>
       </div>
-      <div className="relative w-full h-full">
-  <Image 
-    src="/images/left3.jpeg"
-    alt="left"
-    layout="fill"
-    objectFit="cover"
-  />
-</div>
+
+      {/* Right Column - Image */}
+      <div className="hidden lg:block relative w-full lg:w-1/2">
+        <Image 
+          src="/images/left3.jpeg"
+          alt="Decorative background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
     </div>
   )
 }

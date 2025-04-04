@@ -37,3 +37,4 @@ export const data = [
         skills: ["Web Design", "Responsive web Design"]
     }
 ];
+
