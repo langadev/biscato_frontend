@@ -1,15 +1,16 @@
-'use client'
+import { ReactNode } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-function providers({children}) {
-  return (
-    <div>
-      <GoogleOAuthProvider clientId="<your_client_id>">
-        {children}
-        </GoogleOAuthProvider>;
-       
-    </div>
-  )
+interface ProvidersProps {
+  children: ReactNode;
 }
 
-export default providers
+function Providers({ children }: ProvidersProps) {
+  return (
+    <GoogleOAuthProvider clientId="<your_client_id>">
+      {children}
+    </GoogleOAuthProvider>
+  );
+}
+
+export default Providers;
