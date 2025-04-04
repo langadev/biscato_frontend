@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Calendar, Clock, DollarSign, FileText, Mail, User } from 'lucide-react';
+import {   DollarSign, FileText, User } from 'lucide-react';
 
 const ContratacaoFreelancer = () => {
   const [formData, setFormData] = useState({
