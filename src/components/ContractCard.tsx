@@ -1,12 +1,13 @@
 import React from 'react'
+import Link from 'next/link'
 
 function ContractCard() {
   return (
     <div className='p-6 bg-white flex flex-col gap-6 border border-slate-100 shadow-sm rounded-lg'>
       {/* Hire Button */}
-      <button className='bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-6 py-3 text-white font-medium text-lg w-full shadow-md hover:shadow-lg'>
+      <Link href={'/contract'} className='bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl px-6 py-3 text-white font-medium text-lg w-full shadow-md hover:shadow-lg'>
         Contratar
-      </button>
+      </Link>
       
       {/* Activity Section */}
       <div className='space-y-4'>

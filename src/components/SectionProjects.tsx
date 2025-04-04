@@ -53,7 +53,7 @@ export default function SectionProjects() {
 
               <div className="p-4 border-t border-gray-100 flex justify-between items-center">
                 <button 
-                  className="text-violet-600 hover:text-violet-800 transition-colors flex items-center gap-1"
+                  className="text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1"
                   aria-label={`View details of ${item.title}`}
                 >
                   <PlusCircle className="w-5 h-5" />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand } from 'next/font/google';
 import "./globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Footer from '@/components/Footer';
 
 const quicksand = Quicksand({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={`${quicksand.className} antialiased relative h-screen`}>
         <GoogleOAuthProvider clientId="<your_client_id>">
           {children}
+          <Footer/>
         </GoogleOAuthProvider>
       </body>
     </html>
