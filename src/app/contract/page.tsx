@@ -1,50 +1,50 @@
 'use client'
 import React, { useState } from 'react';
-import {   DollarSign, FileText, User } from 'lucide-react';
+import { DollarSign, FileText, User } from 'lucide-react';
+
+interface FormData {
+  nome: string;
+  email: string;
+  telefone: string;
+  tipoProjeto: string;
+  descricao: string;
+  orcamento: string;
+  prazo: string;
+  dataInicio: string;
+  anexos: File[];
+}
 
 const ContratacaoFreelancer = () => {
-    const [formData, setFormData] = useState<{
-        nome: string;
-        email: string;
-        telefone: string;
-        tipoProjeto: string;
-        descricao: string;
-        orcamento: string;
-        prazo: string;
-        dataInicio: string;
-        anexos: File[];
-      }>({
-        nome: '',
-        email: '',
-        telefone: '',
-        tipoProjeto: '',
-        descricao: '',
-        orcamento: '',
-        prazo: '',
-        dataInicio: '',
-        anexos: []
-      });
-      
-      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-          ...prev,
-          [name]: value
-        }));
-      };
-      
+  const [formData, setFormData] = useState<FormData>({
+    nome: '',
+    email: '',
+    telefone: '',
+    tipoProjeto: '',
+    descricao: '',
+    orcamento: '',
+    prazo: '',
+    dataInicio: '',
+    anexos: []
+  });
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return; // Evita erro caso não haja arquivos selecionados
-  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      anexos: [...prev.anexos, ...Array.from(e.target.files)] // Converte FileList em Array
+      [name]: value
     }));
   };
-  
 
-  const handleSubmit = (e)=> {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+    
+    setFormData(prev => ({
+      ...prev,
+      anexos: [...prev.anexos, ...Array.from(e.target.files as FileList)]
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Dados do formulário:', formData);
     // Aqui você adicionaria a lógica para enviar os dados
