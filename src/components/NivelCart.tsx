@@ -12,12 +12,16 @@ export default function NivelCart() {
           </div>
           <h1 className='text-xl font-semibold text-gray-800'>O que é um Perfil Nível Herói?</h1>
         </div>
+        <div className='flex flex-col gap-3'>
+
         <p className='text-gray-600 text-justify'>
           O Freelancer Herói é aquele que chegou ao nível mais alto do Biscato. Se você precisa de um profissional qualificado, você acabou de encontrá-lo. O Freelancer Herói já demonstrou todo seu talento através de serviços prestados e compromissos assumidos com os clientes, além de ter excelente comunicação.
         </p>
+        <button className='bg-blue-500 hover:bg-blue-400 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Classificar</button>
+        </div>
       </div>
 
-      <div className='flex-1'>
+      <div className='flex-1 '>
         <div className='flex items-center gap-3 mb-4'>
           <div className='bg-red-100 p-2 rounded-full'>
             <svg className='w-6 h-6 text-red-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -26,9 +30,13 @@ export default function NivelCart() {
           </div>
           <h1 className='text-xl font-semibold text-gray-800'>O que é uma Violação?</h1>
         </div>
+        <div className='flex flex-col gap-5'>
+
         <p className='text-gray-600 text-justify'>
           Uma violação é uma classificação negativa dada pelo BISCATO a um usuário depois de uma arbitragem, como resultado de um descumprimento do usuário com algum ou todos termos do Projeto!
         </p>
+        <button className='bg-red-500 hover:bg-red-400 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Denunciar</button>
+        </div>
       </div>
     </div>
   )

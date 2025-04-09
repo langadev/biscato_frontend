@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from "@/components/Navbar";
 import Hero from '@/components/Hero';
 import Posts from '@/components/Posts';
+import Testimonials from '@/components/TestimonialsSection';
 
 
 export default function page() {
@@ -10,7 +11,7 @@ export default function page() {
       <Navbar/>
       <Hero/>
       <Posts/>
- 
+      <Testimonials/>
     </div>
   )
 }
