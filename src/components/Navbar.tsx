@@ -50,6 +50,13 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
+          <Link 
+              href="/denuncia" 
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group"
+            >
+              Denuncias
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+            </Link>
             <Link 
               href="/" 
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors relative group"
