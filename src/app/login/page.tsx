@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { GoogleLogin } from '@react-oauth/google';
 import Image from "next/image";
-import { Facebook, User, Mail, Lock, Phone, Briefcase, MapPin, Globe, CreditCard } from 'lucide-react';
+import { Facebook, User, Mail, Lock, Phone, Briefcase, MapPin, CreditCard } from 'lucide-react';
 
 export default function Register() {
   const [login, setLogin] = useState(false);
@@ -67,7 +67,7 @@ export default function Register() {
               useOneTap
               theme="filled_blue"
               size="large"
-              text={login ? "signin_with" : "sign  up_with"}
+              text={login ? "signin_with" : "signup_with"}
               shape="rectangular"
               width="350"
             />

@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import { Search, Filter, Star, MapPin, Briefcase, Clock } from 'lucide-react';
-
+import Image from 'next/image';
 const FreelancersPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
@@ -200,11 +200,14 @@ const FreelancersPage = () => {
               <div className="p-6">
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
-                    <img
-                      className="h-16 w-16 rounded-full object-cover"
-                      src={freelancer.image}
-                      alt={freelancer.name}
-                    />
+                  <Image
+  className="h-16 w-16 rounded-full object-cover"
+  src={freelancer.image}
+  alt={freelancer.name}
+  width={64}
+  height={64}
+/>
+
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-medium text-gray-900">{freelancer.name}</h3>
