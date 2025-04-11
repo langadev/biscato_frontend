@@ -189,12 +189,12 @@ export default function Posts() {
             </div>
 
             {/* Post Image */}
-            <div className="relative aspect-square bg-gray-100">
+            <div className="relative aspect-square bg-gray-100 ">
               <Image 
                 src={post.image} 
                 fill 
                 alt="Post image" 
-                className="object-cover"
+                className="object-cover rounded-sm"
               />
             </div>
 
