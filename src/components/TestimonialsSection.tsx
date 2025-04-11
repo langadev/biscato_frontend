@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Star, Quote, User } from 'lucide-react';
-
+import Image from 'next/image';
 const Testimonials = () => {
   const testimonials = [
     {
@@ -57,17 +57,19 @@ const Testimonials = () => {
               
               <Quote className="h-8 w-8 text-gray-300 mb-4" />
               
-              <p className="text-gray-600 mb-6 italic">
-                "{testimonial.content}"
-              </p>
+              <p>{testimonial.content}</p>
               
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img
-                    className="h-12 w-12 rounded-full object-cover"
-                    src={testimonial.avatar}
-                    alt={`${testimonial.name} avatar`}
-                  />
+                <Image
+  className="h-12 w-12 rounded-full object-cover"
+  src={testimonial.avatar}
+  alt={`${testimonial.name} avatar`}
+  width={30}
+  height={30}
+  priority
+/>
+
                 </div>
                 <div className="ml-4">
                   <h3 className="text-lg font-medium text-gray-900">{testimonial.name}</h3>
