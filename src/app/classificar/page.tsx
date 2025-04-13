@@ -79,7 +79,7 @@ export default function AvaliarFreelancer() {
         wouldHireAgain: false
       });
     } catch (e) {
-      setError('Erro ao enviar avaliação. Tente novamente.');
+      setError('Erro ao enviar avaliação. Tente novamente.'+ e);
     } finally {
       setIsSubmitting(false);
     }
