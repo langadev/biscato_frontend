@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Heart, MessageSquare, Share2, MoreHorizontal } from 'lucide-react';
-
+import Link from 'next/link';
 type Comment = {
   id: string;
   user: string;
@@ -169,8 +169,11 @@ export default function Posts() {
       <h1 className='text-3xl font-bold text-center'>Encontre os melhores freelancers</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {posts.map(post => (
+          
           <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+            
             {/* Post Header */}
+            <Link href={`profile/${post.user}`}>
             <div className="flex items-center p-4">
               <Image 
                 src={post.avatar} 
@@ -187,6 +190,7 @@ export default function Posts() {
                 <MoreHorizontal size={20} />
               </button>
             </div>
+            </Link>
 
             {/* Post Image */}
             <div className="relative aspect-square bg-gray-100 ">

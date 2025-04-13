@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link'
 export default function NivelCart() {
   return (
     <div className='flex flex-col lg:flex-row gap-8 rounded-lg border border-gray-200 p-6 text-gray-700 bg-white shadow-sm mt-5'>
@@ -17,7 +17,7 @@ export default function NivelCart() {
         <p className='text-gray-600 text-justify'>
           O Freelancer Herói é aquele que chegou ao nível mais alto do Biscato. Se você precisa de um profissional qualificado, você acabou de encontrá-lo. O Freelancer Herói já demonstrou todo seu talento através de serviços prestados e compromissos assumidos com os clientes, além de ter excelente comunicação.
         </p>
-        <button className='bg-blue-500 hover:bg-blue-400 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Classificar</button>
+        <Link href={'/classificar'} className='bg-blue-600 hover:bg-blue-700 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Classificar</Link>
         </div>
       </div>
 
@@ -35,7 +35,7 @@ export default function NivelCart() {
         <p className='text-gray-600 text-justify'>
           Uma violação é uma classificação negativa dada pelo BISCATO a um usuário depois de uma arbitragem, como resultado de um descumprimento do usuário com algum ou todos termos do Projeto!
         </p>
-        <button className='bg-red-500 hover:bg-red-400 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Denunciar</button>
+        <Link href={'/denuncia'} className='bg-red-600 hover:bg-red-700 text-xl px-2 py-1 text-white rounded-md cursor-pointer'>Denunciar</Link>
         </div>
       </div>
     </div>

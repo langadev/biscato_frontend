@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Search, Filter, Star, MapPin, Briefcase, Clock } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 const FreelancersPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
@@ -251,12 +252,12 @@ const FreelancersPage = () => {
               </div>
 
               <div className="bg-gray-50 px-6 py-4 flex justify-between">
-                <button className="text-sm font-medium text-blue-600 hover:text-blue-500">
+                <Link href={`profile/${freelancer.id}`} className="text-sm font-medium text-blue-600 hover:text-blue-500">
                   Ver perfil completo
-                </button>
-                <button className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                </Link>
+                <Link href={'/contract'} className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                   Contratar
-                </button>
+                </Link>
               </div>
             </div>
           ))}

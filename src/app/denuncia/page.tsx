@@ -123,7 +123,7 @@ const DenunciaPage = () => {
 
               {/* Usuário Denunciado */}
               <div>
-                <label htmlFor="usuarioDenunciado" className="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+                <label htmlFor="usuarioDenunciado" className="text-sm font-medium text-gray-700 mb-1 flex items-center">
                   <User className="mr-2" size={16} />
                   Usuário/Perfil Denunciado *
                 </label>
